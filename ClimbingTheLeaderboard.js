@@ -32,8 +32,28 @@ function readLine() {
  */
 
 function climbingLeaderboard(ranked, player) {
-    // Write your code here
-
+    let uniqueRanked = [...new Set(ranked)].sort((a, b) => b - a);
+    let result = [];
+    
+    for (let score of player) {
+        let left = 0;
+        let right = uniqueRanked.length - 1;
+        let rank = uniqueRanked.length + 1; 
+        
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+            if (uniqueRanked[mid] <= score) {
+                rank = mid + 1;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        
+        result.push(rank);
+    }
+    
+    return result;
 }
 
 function main() {
