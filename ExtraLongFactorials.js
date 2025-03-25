@@ -27,8 +27,12 @@ function readLine() {
  */
 
 function extraLongFactorials(n) {
-    // Write your code here
+    let result = BigInt(1);
+    for (let i = BigInt(2); i <= n; i++) {
+        result *= i;
+    }
 
+    console.log(result.toString())
 }
 
 function main() {
