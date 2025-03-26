@@ -33,8 +33,28 @@ function readLine() {
  */
 
 function appendAndDelete(s, t, k) {
-    // Write your code here
+    const common_length = getCommonLength(s, t);
+    const min_operations = (s.length - common_length) + (t.length - common_length);
 
+    if (k >= s.length + t.length) {
+        return "Yes";
+    } else if (k >= min_operations && (k - min_operations) % 2 === 0) {
+        return "Yes";
+    } else {
+        return "No";
+    }
+}
+
+function getCommonLength(s, t) {
+    let common_length = 0;
+    for (let i = 0; i < Math.min(s.length, t.length); i++) {
+        if (s[i] === t[i]) {
+            common_length++;
+        } else {
+            break;
+        }
+    }
+    return common_length;
 }
 
 function main() {
