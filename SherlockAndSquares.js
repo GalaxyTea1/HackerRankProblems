@@ -32,8 +32,9 @@ function readLine() {
  */
 
 function squares(a, b) {
-    // Write your code here
-
+    const k_min = Math.ceil(Math.sqrt(a));
+    const k_max = Math.floor(Math.sqrt(b));
+    return k_max - k_min + 1;
 }
 
 function main() {
