@@ -30,8 +30,16 @@ function readLine() {
  */
 
 function cutTheSticks(arr) {
-    // Write your code here
-
+    let result = [];
+    let sticks = [...arr];
+    
+    while(sticks.length > 0) {
+        result.push(sticks.length);
+        const min = Math.min(...sticks);
+        sticks = sticks.map(stick => stick - min).filter(stick => stick > 0);
+    }
+    
+    return result;
 }
 
 function main() {
