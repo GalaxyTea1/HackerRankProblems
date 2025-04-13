@@ -30,8 +30,20 @@ function readLine() {
  */
 
 function jumpingOnClouds(c) {
-    // Write your code here
-
+    let jumps = 0;
+    let currentPosition = 0;
+    const n = c.length;
+    
+    while (currentPosition < n - 1) {
+        if (currentPosition + 2 < n && c[currentPosition + 2] === 0) {
+            currentPosition += 2;
+        } else {
+            currentPosition += 1;
+        }
+        jumps += 1;
+    }
+    
+    return jumps;
 }
 
 function main() {
