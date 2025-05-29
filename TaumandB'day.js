@@ -35,7 +35,18 @@ function readLine() {
  */
 
 function taumBday(b, w, bc, wc, z) {
-  // Write your code here
+  b = BigInt(b);
+  w = BigInt(w);
+  bc = BigInt(bc);
+  wc = BigInt(wc);
+  z = BigInt(z);
+
+  let bp = Math.min(bc, wc + z); // min(bc, wc + z)
+  let wp = Math.min(wc, bc + z); // min(wc, bc + z)
+
+  let totalCost = bp * b + wp * w;
+
+  return totalCost.toString();
 }
 
 function main() {
