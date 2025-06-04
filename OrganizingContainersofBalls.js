@@ -30,7 +30,27 @@ function readLine() {
  */
 
 function organizingContainers(container) {
-  // Write your code here
+  const n = container.length;
+  let containerSums = new Array(n).fill(0);
+  let typeSums = new Array(n).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      containerSums[i] += container[i][j]; // sum ball container i
+      typeSums[j] += container[i][j]; // sum ball type j
+    }
+  }
+
+  containerSums.sort((a, b) => a - b);
+  typeSums.sort((a, b) => a - b);
+
+  for (let i = 0; i < n; i++) {
+    if (containerSums[i] !== typeSums[i]) {
+      return "Impossible";
+    }
+  }
+
+  return "Possible";
 }
 
 function main() {
